@@ -5,7 +5,7 @@ Website: https://www.crypticorn.com/
 X: https://twitter.com/CrypticornAI
 Discord: https://discord.com/invite/VAAtM84Wy9
 */
-pragma solidity ^0.8.20;
+pragma solidity ^0.8.28;
 
 import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 

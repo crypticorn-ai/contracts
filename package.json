@@ -6,14 +6,18 @@
   "scripts": {
     "compile": "hardhat compile && npm run generate-abis",
     "generate-abis": "node scripts/generate-abis.js",
-    "check-balance:mainnet": "hardhat run scripts/check-balance.js --network bscMainnet",
-    "check-balance:testnet": "hardhat run scripts/check-balance.js --network bscTestnet",
+    "balance:mainnet": "hardhat run scripts/check-balance.js --network bscMainnet",
+    "balance:testnet": "hardhat run scripts/check-balance.js --network bscTestnet",
+    "cost:testnet": "hardhat run scripts/estimate-deployment-cost.js --network bscTestnet",
+    "cost:mainnet": "hardhat run scripts/estimate-deployment-cost.js --network bscMainnet",
     "deploy:token:testnet": "hardhat run scripts/deploy-token.js --network bscTestnet",
     "deploy:token:mainnet": "hardhat run scripts/deploy-token.js --network bscMainnet",
     "deploy:staking:testnet": "hardhat run scripts/deploy-staking.js --network bscTestnet",
     "deploy:staking:mainnet": "hardhat run scripts/deploy-staking.js --network bscMainnet",
     "deploy:testnet": "hardhat run scripts/deploy-full.js --network bscTestnet",
     "deploy:mainnet": "hardhat run scripts/deploy-full.js --network bscMainnet",
+    "deploy:simple:testnet": "hardhat run scripts/deploy-simple-token.js --network bscTestnet",
+    "deploy:simple:mainnet": "hardhat run scripts/deploy-simple-token.js --network bscMainnet",
     "verify": "hardhat verify --network",
     "test": "hardhat test"
   },
@@ -22,8 +26,8 @@
   "license": "ISC",
   "type": "commonjs",
   "exports": {
-    "CrypticornStaking": "./artifacts/generated-src/CrypticornStaking.ts",
-    "Crypticorn": "./artifacts/generated-src/Crypticorn.ts"
+    "./staking": "./artifacts/generated-src/CrypticornStaking.ts",
+    "./token": "./artifacts/generated-src/Crypticorn.ts"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^5.3.0"
