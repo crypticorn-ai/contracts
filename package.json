@@ -1,6 +1,6 @@
 {
   "name": "@crypticorn-ai/contracts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -29,6 +29,9 @@
     "./staking": "./artifacts/generated-src/CrypticornStaking.ts",
     "./token": "./artifacts/generated-src/Crypticorn.ts"
   },
+  "files": [
+    "artifacts/generated-src"
+  ],
   "dependencies": {
     "@openzeppelin/contracts": "^5.3.0"
   },
