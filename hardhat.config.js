@@ -35,9 +35,8 @@ module.exports = {
   },
   etherscan: {
     apiKey: {
-      bsc: process.env.BSCSCAN_API_KEY || "",
-      bscMainnet: process.env.BSCSCAN_API_KEY || "",
-      bscTestnet: process.env.BSCSCAN_API_KEY || ""
+      bscMainnet: process.env.BSCSCAN_API_KEY,
+      bscTestnet: process.env.BSCSCAN_API_KEY
     },
     customChains: [
       {

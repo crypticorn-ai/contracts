@@ -27,9 +27,9 @@ async function main() {
   
   console.log(chalk.green.bold("SUCCESS: CrypticornSimple deployed to:"), chalk.cyan(tokenAddress));
 
-  // Wait for block confirmations before verification
-  console.log(chalk.blue("Waiting for block confirmations..."));
-  await tokenContract.deploymentTransaction().wait(5);
+  // Wait for more block confirmations before verification
+  console.log(chalk.blue("Waiting for 3 block confirmations..."));
+  await tokenContract.deploymentTransaction().wait(3);
 
   // Verify the contract on BSCScan
   try {
@@ -41,6 +41,8 @@ async function main() {
     console.log(chalk.green.bold("SUCCESS: Contract verified successfully!"));
   } catch (error) {
     console.log(chalk.red.bold("FAILED: Verification failed:"), error.message);
+    console.log(chalk.yellow("\nYou can manually verify later using:"));
+    console.log(chalk.cyan(`npx hardhat verify --network ${hre.network.name} ${tokenAddress} "${marketingWallet}" "${tokenName}" "${tokenSymbol}"`));
   }
 
   // Log deployment summary
@@ -53,6 +55,7 @@ async function main() {
   console.log(chalk.blue("Marketing Wallet:"), chalk.cyan(marketingWallet));
   console.log(chalk.blue("Network:"), chalk.cyan(hre.network.name));
   console.log(chalk.blue("Deployer:"), chalk.cyan(deployer.address));
+  console.log(chalk.blue("BSCScan URL:"), chalk.cyan(`https://${hre.network.name === 'bscTestnet' ? 'testnet.' : ''}bscscan.com/address/${tokenAddress}`));
   
   console.log(chalk.yellow.bold("\n=== Next Steps ==="));
   console.log(chalk.blue("1. Enable trading:"), chalk.cyan(`contract.enableTrading()`));
