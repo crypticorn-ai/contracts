@@ -13,6 +13,9 @@ artifacts/generated-src/
 /cache
 /artifacts
 
+# Build files
+/dist
+
 # Environment variables
 .env
 .env.local

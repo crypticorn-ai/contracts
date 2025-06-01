@@ -383,6 +383,22 @@ contract CrypticornStaking is Ownable, ReentrancyGuard {
     // ========================
 
     /**
+     * @notice Get the total number of unique stakers.
+     * @return The number of stakers.
+     */
+    function getStakersCount() external view returns (uint256) {
+        return stakers.length;
+    }
+
+    /**
+     * @notice Get all staker addresses.
+     * @return Array of all staker addresses.
+     */
+    function getAllStakers() external view returns (address[] memory) {
+        return stakers;
+    }
+
+    /**
      * @notice Get details of a user's stake in a pool.
      * @param user The address of the user.
      * @param poolId The pool id.

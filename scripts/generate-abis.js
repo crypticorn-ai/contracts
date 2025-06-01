@@ -1,10 +1,10 @@
-const fs = require('fs');
-const path = require('path');
-const chalk = require('chalk');
+import fs from 'fs';
+import path from 'path';
+import chalk from 'chalk';
 
 async function generateABIs() {
-  const artifactsDir = path.join(__dirname, '..', 'artifacts', 'contracts');
-  const outputDir = path.join(__dirname, '..', 'artifacts', 'generated-src');
+  const artifactsDir = path.join(process.cwd(), 'artifacts', 'contracts');
+  const outputDir = path.join(process.cwd(), 'artifacts', 'generated-src');
 
   // Create output directory if it doesn't exist
   if (!fs.existsSync(outputDir)) {
