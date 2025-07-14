@@ -1,5 +1,5 @@
-const hre = require("hardhat");
-const chalk = require('chalk');
+import hre from "hardhat";
+import chalk from 'chalk';
 
 async function main() {
   try {
