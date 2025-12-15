@@ -1,12 +1,13 @@
 {
   "name": "@crypticorn-ai/contracts",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "",
   "type": "module",
   "scripts": {
     "compile": "hardhat compile && npm run generate-abis && npm run build",
     "generate-abis": "node scripts/generate-abis.mjs",
     "build": "rm -rf dist && tsc",
+    "prepare": "hardhat compile && node scripts/generate-abis.mjs && rm -rf dist && tsc",
     "balance:mainnet": "hardhat run scripts/check-balance.mjs --network bscMainnet",
     "balance:testnet": "hardhat run scripts/check-balance.mjs --network bscTestnet",
     "cost:testnet": "hardhat run scripts/estimate-deployment-cost.mjs --network bscTestnet",
@@ -27,9 +28,18 @@
   "author": "",
   "license": "ISC",
   "exports": {
-    "./staking": "./dist/CrypticornStaking.js",
-    "./token": "./dist/Crypticorn.js",
-    "./standard": "./dist/CrypticornStandardStaking.js"
+    "./staking": {
+      "types": "./dist/CrypticornStaking.d.ts",
+      "default": "./dist/CrypticornStaking.js"
+    },
+    "./token": {
+      "types": "./dist/Crypticorn.d.ts",
+      "default": "./dist/Crypticorn.js"
+    },
+    "./standard": {
+      "types": "./dist/CrypticornStandardStaking.d.ts",
+      "default": "./dist/CrypticornStandardStaking.js"
+    }
   },
   "files": [
     "dist"
@@ -44,6 +54,7 @@
     "dotenv": "^16.5.0",
     "hardhat": "^2.24.1",
     "install": "^0.13.0",
+    "typescript": "^5.9.3",
     "undici": "^7.10.0"
   }
 }
